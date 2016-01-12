@@ -75,7 +75,7 @@ script:
    else
      ./configure;
    fi
- - make
+ - python scons/scons.py -j3 --config=cache --implicit-cache --max-drift=1
  - make test || TEST_RESULT=$?
  - if [[ ${COVERAGE} == true ]]; then
      ./mason_packages/.link/bin/cpp-coveralls --build-root . --gcov-options '\-lp' --exclude mason_packages --exclude .sconf_temp --exclude benchmark --exclude deps --exclude scons --exclude test --exclude demo --exclude docs --exclude fonts --exclude utils > /dev/null; 
