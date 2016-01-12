@@ -46,7 +46,7 @@ before_install:
 
 install:
  - if [[ $(uname -s) == 'Linux' ]]; then
-     export CXX="ccache clang++-3.7 -Qunused-arguments";
+     export CXX="travis_wait ccache clang++-3.7 -Qunused-arguments";
      export CC="ccache clang-3.7 -Qunused-arguments";
      export PYTHONPATH=$(pwd)/mason_packages/.link/lib/python2.7/site-packages;
    else
